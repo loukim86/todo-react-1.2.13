@@ -4,16 +4,16 @@ import './TaskList.css';
 
 const TaskList = ({ taskData }) => {
   const taskTodo = taskData.map((item) => {
-    const {id, status, ...itemProps} = item;
+    const {id, state, ...itemProps} = item;
     return (
-        <li key={item.id} className={item.status}>
+        <li key={item.id} className={item.state}>
             <div className="view">
                 <input className="toggle" type="checkbox" />
                 <label><Task taskItem={itemProps}/></label>
                 <button className="icon icon-edit"></button>
                 <button className="icon icon-destroy"></button>
             </div>
-            {item.status === 'editing' ? <input type="text" className="edit" defaultValue="Editing task"/> : null}
+            {item.state === 'editing' ? <input type="text" className="edit" defaultValue="Editing task"/> : null}
         </li>
     );
 });
